@@ -19,10 +19,10 @@ axiosInstance.get(url)
         response => {
             const html = response.data; // Get the html from de HTTP
             const $ = cheerio.load(html) // load the html string into cheerio
-            const statsTable: Cheerio = $('.statsTableContainer > tr')
+            const statsTable: Cheerio = $('.statsTableContainer > tr') // to set jquery code
             const topScorers : PlayerData[] = [];
 
-            statsTable.each((i, elem) => {
+            statsTable.each((index, elem) => {
                 const rank: number = parseInt($(elem).find('.rank > strong').text());
                 const name: string = ($(elem).find('.playerName > strong').text());
                 const nationality: string = ($(elem).find('.info > .playerCountry').text());
